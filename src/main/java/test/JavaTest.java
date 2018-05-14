@@ -1,27 +1,36 @@
 package test;
 
-import base.Student;
 import org.junit.Test;
-
-import java.beans.BeanInfo;
-import java.beans.IntrospectionException;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
-import java.io.IOException;
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Enumeration;
-
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
- * @author skywalker
+ * @author zhujing
  */
+/**@@主测试类
+ * @Runwith用于在spring环境中测试，相当于加载了spring容器,除了不用启动tomcat等服务器，需要如下方式提供bean信息，aop信息等；
+  * 1.以xml形式提供；
+  * 2.以注解方式提供。
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+
+// 加载Testpluginimpl类的相关信息；
+@ContextConfiguration(classes=TestPluginImpl.class)
 public class JavaTest {
+   
+// 定义实现类 testpluginimpl，接口为TestPlugin 实现类为TestPluginImpl.java 
+   @Autowired
+	private TestPlugin testpluginimpl;
+  /* 
+   @Test
+   public void testdemo1(){
+	   demo1.testDemo1();
+   }*/
+	/*
+	private class MyList extends ArrayList {
 
-    private class MyList extends ArrayList {
-
-        @Override
+       @Override
         public String get(int index) {
             return "";
         }
@@ -63,6 +72,43 @@ public class JavaTest {
         System.out.println(arr);
         System.out.println("月份: " + arr[2]);
         System.out.println("天气: " + arr[4]);
+    }*/
+	@Test
+    public void testaop(){
+		//System.out.println(testpluginimpl);
+		try {
+			testpluginimpl.testsql();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
     }
+   /* public void testsql(){
+    	
+    	Map<String,Object> map1=new HashMap<>();
+    	//System.out.println("---开始连接数据库---");
+    	 String sql="select * from users ";
+    	 int i=0;
+    	List<Map<String,Object>> list=jdbcTemplate.queryForList(sql);
+      Iterator<Map<String, Object>> iterator=list.iterator();
+    	while(iterator.hasNext()){
+    		String password=null;
+    		String username=null;
+    		Map<String, Object> map2=iterator.next();
+    		username=(String)map2.get("username");
+    		password=(String)map2.get("userpassword");
+    		System.out.println("--"+username);
+    		System.out.println("--"+password);
+    		System.out.println("----------------------------");
+    		map1.put(username, password);
+    	    
+    		
+    	}
+    	//System.out.println(list);
+    	//System.out.println("---连接成功---");
+    	
+    	
+    }*/
 
 }
