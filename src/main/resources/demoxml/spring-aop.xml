@@ -10,14 +10,15 @@
             http://www.springframework.org/schema/context/spring-context-4.3.xsd
             http://www.springframework.org/schema/mvc
             http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd 
+			http://www.springframework.org/schema/aop
 			http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 			
-
+            <bean id="emptyConfig" class="test.EmptyConfig"/>
 			<bean id="testAspect"  class="test.TestAspect"/>
 			<aop:config>
     <aop:aspect ref="testAspect">
-   <aop:before pointcut="execution(** test.TestPlugin.testsql(..))" method="beforcon"/>  
-   <aop:after pointcut="execution(** test.TestPlugin.testsql(..))" method="aftercon"/>  
+   <aop:before pointcut="execution(** test.EmptyConfig.testempty(..))" method="beforecon"/>  
+   <aop:after pointcut="execution(** test.EmptyConfig.testempty(..))" method="aftercon"/>  
 	</aop:aspect>
     </aop:config>
 			

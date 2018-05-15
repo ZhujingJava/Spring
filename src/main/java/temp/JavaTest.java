@@ -10,7 +10,7 @@
  * 注意：项目免费下载及阅读，若有转载请注明出处！
  */  
 
-package test;
+package temp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -77,26 +77,26 @@ public class JavaTest {
 		}
 
 	}
-	/*
-	 * public void testsql(){
-	 * 
-	 * Map<String,Object> map1=new HashMap<>();
-	 * //System.out.println("---开始连接数据库---"); String sql="select * from users ";
-	 * int i=0; List<Map<String,Object>> list=jdbcTemplate.queryForList(sql);
-	 * Iterator<Map<String, Object>> iterator=list.iterator();
-	 * while(iterator.hasNext()){ String password=null; String username=null;
-	 * Map<String, Object> map2=iterator.next();
-	 * username=(String)map2.get("username");
-	 * password=(String)map2.get("userpassword");
-	 * System.out.println("--"+username); System.out.println("--"+password);
-	 * System.out.println("----------------------------"); map1.put(username,
-	 * password);
-	 * 
-	 * 
-	 * } //System.out.println(list); //System.out.println("---连接成功---");
-	 * 
-	 * 
-	 * }
-	 */
+	/* @Test
+	  public void testsql(){
+	  
+	  Map<String,Object> map1=new HashMap<>();
+	 //System.out.println("---开始连接数据库---"); String sql="select * from users ";
+	  int i=0; List<Map<String,Object>> list=jdbcTemplate.queryForList(sql);
+	  Iterator<Map<String, Object>> iterator=list.iterator();
+	  while(iterator.hasNext()){ String password=null; String username=null;
+	  Map<String, Object> map2=iterator.next();
+	  username=(String)map2.get("username");
+	  password=(String)map2.get("userpassword");
+	 System.out.println("--"+username); System.out.println("--"+password);
+	  System.out.println("----------------------------"); map1.put(username,
+	  password);
+	  
+	  
+	  } //System.out.println(list); //System.out.println("---连接成功---");
+	  
+	  
+	  }*/
+	 
 
 }

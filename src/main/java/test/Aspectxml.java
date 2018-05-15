@@ -11,17 +11,14 @@
  */  
 package test;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-
 /**
  * @author Administrator
  *
  */
-@Configuration //表明是配置类
-@EnableAspectJAutoProxy//启用AspectJ自动代理
-@ComponentScan//扫描当前类所在的基础包
-public class EmptyConfig {
 
+public class Aspectxml {
+// spring-aop.xml中配置的切入点方法；
+	public void testempty(){
+	  System.out.println("AOP切入点 testempty()方法");
+  }
 }
